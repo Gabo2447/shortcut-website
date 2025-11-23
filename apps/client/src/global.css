@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #0d1117;
+}
+
+.card {
+  @apply flex p-1.5;
+  @apply border border-white/12 bg-white/4 rounded-lg;
+  @apply text-neutral-400;
+  @apply transition;
+
+  &:hover,
+  &:focus {
+    @apply border-white/50;
+    @apply text-neutral-200;
+    @apply -translate-y-0.5;
+    /*animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;*/
+  }
+}
+
+.errorCard {
+  @apply bg-red-600/30 border border-red-600 text-red-600 px-4 py-2 w-full my-4 rounded-lg text-center font-semibold;
+}
+
+.successCard {
+  @apply bg-green-600/30 border border-green-600 text-green-600 px-4 py-2 w-full my-4 rounded-lg text-center font-semibold;
+}
