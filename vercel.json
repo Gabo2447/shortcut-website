@@ -2,22 +2,34 @@
   "version": 2,
   "builds": [
     {
-      "src": "/apps/client/dist/*",
-      "use": "@now/static",
+      "src": "apps/client/package.json",
+      "use": "@vercel/static-build",
       "config": {
         "outputDirectory": "apps/client/dist"
       }
     },
     {
-      "src": "/apps/api/index.js",
+      "src": "api/index.ts",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
+      "src": "/.*\\.(js|css|ico|png|jpg|jpeg|gif|svg)$",
+      "dest": "$0",
+      "continue": true
+    },
+    {
+      "src": "/[^/]+",
+      "dest": "/api/index.ts"
+    },
+    {
+      "src": "/shorten",
+      "dest": "/api/index.ts"
+    },
+    {
       "src": "/(.*)",
-      "dest": "/apps/api/src/index.js",
-      "methods": ["GET", "POST"]
+      "dest": "/apps/client/dist/index.html"
     }
   ]
 }
