@@ -3,7 +3,10 @@
   "builds": [
     {
       "src": "/apps/client/dist/*",
-      "use": "@now/static"
+      "use": "@now/static",
+      "config": {
+        "outputDirectory": "apps/client/dist"
+      }
     },
     {
       "src": "/apps/api/index.js",
