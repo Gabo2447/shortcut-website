@@ -6,7 +6,8 @@
   "packageManager": "bun@1.3.2",
   "scripts": {
     "dev": "turbo dev",
-    "build": "turbo build"
+    "build": "turbo build",
+    "start": "bun run ./apps/api/src/index.js"
   },
   "keywords": [],
   "author": "",
